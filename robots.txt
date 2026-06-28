@@ -1,0 +1,39 @@
+# Super Autotech — robots.txt
+# Allow all standard search crawlers
+User-agent: *
+Allow: /
+# Internal template, not a real page
+Disallow: /_product-template.html
+
+# Explicitly allow AI / generative-search crawlers
+User-agent: Googlebot
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
+User-agent: GPTBot
+Allow: /
+
+User-agent: OAI-SearchBot
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: Claude-Web
+Allow: /
+
+User-agent: Applebot-Extended
+Allow: /
+
+User-agent: Bingbot
+Allow: /
+
+Sitemap: https://www.superautotech.com/sitemap.xml

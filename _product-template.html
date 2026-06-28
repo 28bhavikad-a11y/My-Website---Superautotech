@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<!-- ============================================================
+     PRODUCT PAGE TEMPLATE  ·  copy me to <slug>.html
+     Replace every {{PLACEHOLDER}} below:
+       {{SLUG}}        url filename, e.g. rubber-sheet
+       {{NAME}}        full product name
+       {{CATEGORY}}    short category label
+       {{TITLE_TAG}}   <60 char SEO title
+       {{META_DESC}}   <160 char SEO description
+       {{KEYWORDS}}    comma-separated keywords
+       {{IMAGE}}       images/your-photo.png
+       {{HERO_LEAD}}   one-paragraph intro
+       {{...}}         body copy / specs (see comments)
+     Then add it to products-data.js and sitemap.xml.
+     (This file starts with "_" so it is ignored by the site.)
+     ============================================================ -->
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>{{TITLE_TAG}} | Super Autotech</title>
+<meta name="description" content="{{META_DESC}}">
+<meta name="keywords" content="{{KEYWORDS}}">
+<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1">
+<link rel="canonical" href="https://www.superautotech.com/{{SLUG}}.html">
+<meta property="og:type" content="product">
+<meta property="og:site_name" content="Super Autotech">
+<meta property="og:title" content="{{TITLE_TAG}}">
+<meta property="og:description" content="{{META_DESC}}">
+<meta property="og:url" content="https://www.superautotech.com/{{SLUG}}.html">
+<meta property="og:image" content="https://www.superautotech.com/{{IMAGE}}">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;600;700;800;900&family=Hanken+Grotesk:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+<script src="image-slot.js"></script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.superautotech.com/" },
+        { "@type": "ListItem", "position": 2, "name": "Products", "item": "https://www.superautotech.com/products.html" },
+        { "@type": "ListItem", "position": 3, "name": "{{NAME}}", "item": "https://www.superautotech.com/{{SLUG}}.html" }
+      ]
+    },
+    {
+      "@type": "Product",
+      "name": "{{NAME}}",
+      "category": "{{CATEGORY}}",
+      "image": "https://www.superautotech.com/{{IMAGE}}",
+      "description": "{{META_DESC}}",
+      "brand": { "@type": "Brand", "name": "Super Autotech" },
+      "manufacturer": { "@type": "Organization", "name": "Super Autotech", "url": "https://www.superautotech.com/" },
+      "additionalProperty": [
+        { "@type": "PropertyValue", "name": "Thickness options", "value": "{{THICKNESS}}" },
+        { "@type": "PropertyValue", "name": "Color", "value": "{{COLOR}}" }
+      ]
+    }
+  ]
+}
+</script>
+</head>
+<body>
+
+<header class="nav" id="nav">
+  <div class="nav-inner">
+    <a href="index.html" class="brand" aria-label="Super Autotech home">
+      <img src="images/logo-sat.png" alt="Super Autotech" class="brand-logo">
+    </a>
+    <nav class="nav-links" id="navlinks">
+      <div class="nav-dd" id="navProducts" data-active><a href="products.html" class="nav-dd-trigger">Products <span class="caret">▾</span></a></div>
+      <a href="applications.html">Applications</a>
+      <a href="about.html">About</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+    <div class="nav-cta">
+      <a href="contact.html" class="btn">Request a quote <span class="arr">→</span></a>
+      <button class="menu-btn" id="menuBtn" aria-label="Menu"><span></span><span></span><span></span></button>
+    </div>
+  </div>
+</header>
+
+<main>
+<section class="page-hero">
+  <div class="wrap">
+    <nav class="breadcrumb" aria-label="Breadcrumb"><a href="index.html">Home</a><span class="sep">/</span><a href="products.html">Products</a><span class="sep">/</span><span class="cur">{{NAME}}</span></nav>
+    <span class="eyebrow" style="margin-top:20px">Product · {{CATEGORY}}</span>
+    <h1>{{NAME}} — {{HERO_HEADLINE}}</h1>
+    <p class="lead">{{HERO_LEAD}}</p>
+    <div class="hero-cta">
+      <a href="contact.html" class="btn btn--lg">Request a quote <span class="arr">→</span></a>
+      <a href="#specs" class="btn btn--ghost btn--lg">Jump to specs</a>
+    </div>
+  </div>
+</section>
+
+<!-- HOW IT WORKS -->
+<section class="section section--tight">
+  <div class="wrap split">
+    <div class="reveal">
+      <span class="eyebrow">How it works</span>
+      <h2 class="shead" style="font-size:clamp(1.7rem,3vw,2.4rem);margin-top:16px">{{HOW_HEADLINE}}</h2>
+      <div class="prose" style="margin-top:20px">
+        <p>{{HOW_PARAGRAPH_1}}</p>
+        <p>{{HOW_PARAGRAPH_2}}</p>
+      </div>
+    </div>
+    <div class="reveal split-media">
+      <image-slot id="{{SLUG}}-detail" src="{{IMAGE}}" aria-label="{{NAME}} detail" placeholder="{{NAME}} — detail photo" shape="rounded" radius="12"></image-slot>
+    </div>
+  </div>
+</section>
+
+<!-- WHERE IT WORKS -->
+<section class="section section--alt">
+  <div class="wrap">
+    <div class="shead reveal">
+      <span class="eyebrow">Where it works</span>
+      <h2>{{USES_HEADLINE}}</h2>
+      <p>{{USES_INTRO}}</p>
+    </div>
+    <div class="apps reveal">
+      <div class="app"><span class="num">01</span><h4>{{USE_1_TITLE}}</h4><p>{{USE_1_TEXT}}</p></div>
+      <div class="app"><span class="num">02</span><h4>{{USE_2_TITLE}}</h4><p>{{USE_2_TEXT}}</p></div>
+      <div class="app"><span class="num">03</span><h4>{{USE_3_TITLE}}</h4><p>{{USE_3_TEXT}}</p></div>
+      <div class="app"><span class="num">04</span><h4>{{USE_4_TITLE}}</h4><p>{{USE_4_TEXT}}</p></div>
+      <div class="app"><span class="num">05</span><h4>{{USE_5_TITLE}}</h4><p>{{USE_5_TEXT}}</p></div>
+      <div class="app"><span class="num">06</span><h4>{{USE_6_TITLE}}</h4><p>{{USE_6_TEXT}}</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- SPECS -->
+<section class="section" id="specs">
+  <div class="wrap spec-wrap">
+    <div class="reveal">
+      <span class="eyebrow">Technical data</span>
+      <h2 class="shead" style="font-size:clamp(1.9rem,3.4vw,2.85rem);margin-top:18px">Specifications</h2>
+      <p style="color:var(--ink-2);font-size:1.05rem;margin-top:16px">{{SPECS_INTRO}}</p>
+      <div class="cert-row">
+        <span class="cert">{{CHIP_1}}</span>
+        <span class="cert">{{CHIP_2}}</span>
+        <span class="cert">{{CHIP_3}}</span>
+        <span class="cert">{{CHIP_4}}</span>
+      </div>
+      <div class="callout">
+        <span class="ck">Ordering</span>
+        <p>Send your application, thickness and volume and we'll confirm lead time and pricing — built to order from our own line.</p>
+      </div>
+      <div style="margin-top:24px"><a href="contact.html" class="btn">Request a quote <span class="arr">→</span></a></div>
+    </div>
+    <div class="reveal">
+      <table class="spec-table">
+        <tr><th>Product type</th><td>{{NAME}}</td></tr>
+        <tr><th>Material</th><td>{{MATERIAL}}</td></tr>
+        <tr><th>Thickness options</th><td>{{THICKNESS}}</td></tr>
+        <tr><th>Color</th><td>{{COLOR}}</td></tr>
+        <tr><th>Sizes</th><td>{{SIZES}}</td></tr>
+        <tr><th>Primary use</th><td>{{PRIMARY_USE}}</td></tr>
+      </table>
+    </div>
+  </div>
+</section>
+
+<!-- RELATED -->
+<section class="section section--alt section--tight">
+  <div class="wrap">
+    <div class="shead reveal"><span class="eyebrow">Related</span><h2>Explore more.</h2></div>
+    <div class="related">
+      <a class="rcard reveal" href="mass-loaded-vinyl.html"><span class="rk">Product</span><h4>Mass Loaded Vinyl Sheet</h4><p>Our flagship limp-mass barrier for construction, automotive and industrial use.</p><span class="go">View product →</span></a>
+      <a class="rcard reveal" href="applications.html"><span class="rk">Applications</span><h4>All applications</h4><p>See where our materials solve noise problems across industries.</p><span class="go">Read more →</span></a>
+      <a class="rcard reveal" href="products.html"><span class="rk">Range</span><h4>All products</h4><p>Browse the full range of Super Autotech acoustic and automotive materials.</p><span class="go">View all →</span></a>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer class="ftr">
+  <div class="wrap">
+    <div class="ftr-top">
+      <div><div class="brand"><img src="images/logo-sat.png" alt="Super Autotech" class="brand-logo"></div><p class="ftr-blurb">Indian manufacturer of acoustic and automotive noise-control materials. Established 2006.</p></div>
+      <div><h5>Products</h5><ul id="ftrProducts"><li><a href="mass-loaded-vinyl.html">Mass Loaded Vinyl Sheet</a></li><li><a href="eva-heavy-layer-sheet.html">EVA Heavy Layer Sheet</a></li><li><a href="products.html">All products</a></li></ul></div>
+      <div><h5>Applications</h5><ul><li><a href="construction-soundproofing.html">Construction</a></li><li><a href="automotive-soundproofing.html">Automotive</a></li><li><a href="applications.html">HVAC &amp; industrial</a></li><li><a href="mlv-installation-guide.html">Installation guide</a></li></ul></div>
+      <div><h5>Company</h5><ul><li><a href="about.html">About us</a></li><li><a href="contact.html">Contact</a></li><li><a href="mailto:admin@superautotech.com">admin@superautotech.com</a></li><li><a href="contact.html">Private label</a></li></ul></div>
+    </div>
+    <div class="ftr-bottom"><span>© 2026 Super Autotech. All rights reserved.</span><span>ACOUSTIC MATERIALS · NOISE CONTROL · MADE IN INDIA</span></div>
+  </div>
+</footer>
+
+<script src="products-data.js"></script>
+<script src="site.js"></script>
+</body>
+</html>
