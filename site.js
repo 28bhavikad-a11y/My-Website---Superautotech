@@ -17,7 +17,6 @@
     menu.className = "nav-dd-menu";
     menu.innerHTML = P.map(function (p) {
       return '<a class="nav-dd-item" href="' + p.page + '">' +
-               '<span class="ic" style="background-image:url(\'' + p.image + '\')"></span>' +
                '<span><span class="nm">' + p.name + '</span>' +
                '<span class="ct">' + p.category + '</span></span>' +
              '</a>';
